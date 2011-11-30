@@ -35,11 +35,7 @@ module XeroGateway
       if !line_item_id.nil? && line_item_id !~ GUID_REGEX
         @errors << ['line_item_id', 'must be blank or a valid Xero GUID']
       end
-      
-      unless description
-        @errors << ['description', "can't be blank"]
-      end
-            
+                  
       if tax_type && !TAX_TYPE[tax_type]
         @errors << ['tax_type', "must be one of #{TAX_TYPE.keys.join('/')}"]
       end
